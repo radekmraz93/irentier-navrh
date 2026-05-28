@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iRentier.cz - Moderní správa nemovitostí</title>
     <style>
-        /* Definice barev podle původního webu */
+        /* Nová definice vínových a červených barev podle původního webu */
         :root {
-               --primary-wine: #6B0F24; /* Tmavá vínová jako základ */
-               --accent-red: #D9383A;   /* Jasnější červená na tlačítka a detaily */
-               --bg-gray: #F8F9FA;
-               --text-dark: #2B2D42;
-               --white: #ffffff;
-               --border-color: #E2E8F0;
-               }
+            --primary-wine: #6B0F24;
+            --accent-red: #C82333;
+            --bg-gray: #F8F9FA;
+            --text-dark: #333333;
+            --white: #ffffff;
+            --border-color: #E2E8F0;
         }
 
         * {
@@ -31,15 +30,15 @@
 
         /* Hlavička webu */
         header {
-            background-color: var(--primary-blue);
+            background-color: var(--primary-wine);
             color: var(--white);
-            padding: 20px;
+            padding: 25px 20px;
             text-align: center;
-            border-bottom: 4px solid var(--light-blue);
+            border-bottom: 4px solid var(--accent-red);
         }
 
         header h1 {
-            font-size: 24px;
+            font-size: 28px;
             letter-spacing: 1px;
         }
 
@@ -63,7 +62,7 @@
         /* Levé menu */
         nav {
             width: 250px;
-            background-color: var(--primary-blue);
+            background-color: var(--primary-wine);
             padding: 20px 0;
             flex-shrink: 0;
         }
@@ -74,7 +73,7 @@
 
         nav ul li a {
             display: block;
-            color: #BAC7D5;
+            color: #E2C2C8;
             padding: 12px 25px;
             text-decoration: none;
             font-weight: 500;
@@ -84,8 +83,8 @@
 
         nav ul li a:hover, nav ul li a.active {
             color: var(--white);
-            background-color: rgba(255,255,255,0.05);
-            border-left: 4px solid var(--light-blue);
+            background-color: rgba(255,255,255,0.07);
+            border-left: 4px solid var(--accent-red);
         }
 
         /* Středový obsahový panel */
@@ -105,7 +104,7 @@
         }
 
         h2 {
-            color: var(--primary-blue);
+            color: var(--primary-wine);
             margin-bottom: 20px;
             font-size: 28px;
             border-bottom: 2px solid var(--bg-gray);
@@ -117,7 +116,7 @@
             color: #555;
         }
 
-        /* Kontaktní formulář (Moderní náhrada za Formspree) */
+        /* Kontaktní formulář */
         .form-group {
             margin-bottom: 15px;
         }
@@ -139,11 +138,11 @@
 
         input:focus, textarea:focus {
             outline: none;
-            border-color: var(--light-blue);
+            border-color: var(--accent-red);
         }
 
         button {
-            background-color: var(--light-blue);
+            background-color: var(--accent-red);
             color: var(--white);
             border: none;
             padding: 12px 20px;
@@ -155,7 +154,7 @@
         }
 
         button:hover {
-            background-color: #005A9E;
+            background-color: #A71D2A;
         }
 
         /* Patička */
@@ -170,7 +169,7 @@
         /* RESPONSIVITA - Přizpůsobení pro mobily */
         @media (max-width: 768px) {
             .main-container {
-                flex-direction: column; /* Menu a obsah půjdou pod sebe */
+                flex-direction: column;
                 margin: 10px;
             }
 
@@ -193,7 +192,7 @@
 
             nav ul li a:hover, nav ul li a.active {
                 border-left: none;
-                border-bottom: 2px solid var(--light-blue);
+                border-bottom: 2px solid var(--accent-red);
             }
 
             main {
@@ -234,7 +233,7 @@
                 <h2>Naše služby</h2>
                 <p><strong>✓ Správa nájemních smluv:</strong> Kompletní právní krytí a komunikace s nájemníky.</p>
                 <p><strong>✓ Optimalizace výnosů:</strong> Analýza trhu pro nastavení ideální výše nájemného.</p>
-                <p><strong>✓ Technická údržba:</strong> Pravidelné kontroly stavu nemovitosti a řešení havárií.</p>
+                <p><strong>✓ Technická údržba:</strong> Pravivelné kontroly stavu nemovitosti a řešení havárií.</p>
             </div>
 
             <!-- Sekce O nás -->
@@ -248,7 +247,6 @@
                 <h2>Napište nám</h2>
                 <p>Máte zájem o správu nemovitosti nebo nezávaznou konzultaci? Vyplňte formulář níže.</p>
                 
-                <!-- Zde pak stačí do action hodit Formspree link -->
                 <form action="#" method="POST">
                     <div class="form-group">
                         <label>Jméno a příjmení</label>
@@ -272,18 +270,14 @@
         <p>&copy; 2026 iRentier.cz. Všechna práva vyhrazena. | Modernizace webu s podporou AI</p>
     </footer>
 
-    <!-- Jednoduchý skript pro přepínání menu bez načítání stránky -->
     <script>
         function showSection(sectionId, element) {
-            // Skrýt všechny sekce
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(sec => sec.classList.remove('active'));
 
-            // Odznačit aktivní menu
             const menuItems = document.querySelectorAll('nav ul li a');
             menuItems.forEach(item => item.classList.remove('active'));
 
-            // Zobrazit vybranou sekci a aktivovat menu
             document.getElementById(sectionId).classList.add('active');
             element.classList.add('active');
         }
