@@ -1,295 +1,291 @@
-{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset238 Calibri;}{\f2\fnil\fcharset1 Segoe UI Symbol;}}
-{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
-\pard\sa200\sl276\slmult1\f0\fs22\lang5 <!DOCTYPE html>\par
-<html lang="cs">\par
-<head>\par
-    <meta charset="UTF-8">\par
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\par
-    <title>iRentier.cz - Modern\'ed spr\'e1va nemovitost\'ed</title>\par
-    <style>\par
-        /* Definice barev podle p\f1\'f9vodn\f0\lang1033\'edho webu */\par
-        :root \{\par
-            --primary-blue: #0A2540;\par
-            --light-blue: #0078D4;\par
-            --bg-gray: #F4F6F9;\par
-            --text-dark: #333333;\par
-            --white: #ffffff;\par
-            --border-color: #E1E4E8;\par
-        \}\par
-\par
-        * \{\par
-            box-sizing: border-box;\par
-            margin: 0;\par
-            padding: 0;\par
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\par
-        \}\par
-\par
-        body \{\par
-            background-color: var(--bg-gray);\par
-            color: var(--text-dark);\par
-            line-height: 1.6;\par
-        \}\par
-\par
-        /* Hlavi\f1\'e8ka webu */\par
-        header \{\par
-            background-color: var(--primary-blue);\par
-            color: var(--white);\par
-            padding: 20px;\par
-            text-align: center;\par
-            border-bottom: 4px solid var(--light-blue);\par
-        \}\par
-\par
-        header h1 \{\par
-            font-size: 24px;\par
-            letter-spacing: 1px;\par
-        \}\par
-\par
-        header p \{\par
-            font-size: 14px;\par
-            opacity: 0.8;\par
-            margin-top: 5px;\par
-        \}\par
-\par
-        /* Hlavn\f0\'ed kontejner - rozvr\f1\'9een\f0\'ed na menu a obsah */\par
-        .main-container \{\par
-            display: flex;\par
-            max-width: 1200px;\par
-            margin: 20px auto;\par
-            background-color: var(--white);\par
-            border-radius: 8px;\par
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);\par
-            overflow: hidden;\par
-        \}\par
-\par
-        /* Lev\'e9 menu */\par
-        nav \{\par
-            width: 250px;\par
-            background-color: var(--primary-blue);\par
-            padding: 20px 0;\par
-            flex-shrink: 0;\par
-        \}\par
-\par
-        nav ul \{\par
-            list-style: none;\par
-        \}\par
-\par
-        nav ul li a \{\par
-            display: block;\par
-            color: #BAC7D5;\par
-            padding: 12px 25px;\par
-            text-decoration: none;\par
-            font-weight: 500;\par
-            transition: all 0.3s ease;\par
-            border-left: 4px solid transparent;\par
-        \}\par
-\par
-        nav ul li a:hover, nav ul li a.active \{\par
-            color: var(--white);\par
-            background-color: rgba(255,255,255,0.05);\par
-            border-left: 4px solid var(--light-blue);\par
-        \}\par
-\par
-        /* St\f1\'f8edov\f0\'fd obsahov\'fd panel */\par
-        main \{\par
-            flex-grow: 1;\par
-            padding: 40px;\par
-            background-color: var(--white);\par
-        \}\par
-\par
-        .content-section \{\par
-            display: none;\par
-        \}\par
-\par
-        /* Aktivn\'ed sekce, kter\'e1 se zobraz\'ed */\par
-        .content-section.active \{\par
-            display: block;\par
-        \}\par
-\par
-        h2 \{\par
-            color: var(--primary-blue);\par
-            margin-bottom: 20px;\par
-            font-size: 28px;\par
-            border-bottom: 2px solid var(--bg-gray);\par
-            padding-bottom: 10px;\par
-        \}\par
-\par
-        p \{\par
-            margin-bottom: 15px;\par
-            color: #555;\par
-        \}\par
-\par
-        /* Kontaktn\'ed formul\'e1\f1\'f8 (Modern\f0\'ed n\'e1hrada za Formspree) */\par
-        .form-group \{\par
-            margin-bottom: 15px;\par
-        \}\par
-\par
-        label \{\par
-            display: block;\par
-            margin-bottom: 5px;\par
-            font-weight: bold;\par
-            font-size: 14px;\par
-        \}\par
-\par
-        input, textarea \{\par
-            width: 100%;\par
-            padding: 10px;\par
-            border: 1px solid var(--border-color);\par
-            border-radius: 4px;\par
-            font-size: 16px;\par
-        \}\par
-\par
-        input:focus, textarea:focus \{\par
-            outline: none;\par
-            border-color: var(--light-blue);\par
-        \}\par
-\par
-        button \{\par
-            background-color: var(--light-blue);\par
-            color: var(--white);\par
-            border: none;\par
-            padding: 12px 20px;\par
-            font-size: 16px;\par
-            border-radius: 4px;\par
-            cursor: pointer;\par
-            font-weight: bold;\par
-            transition: background 0.3s;\par
-        \}\par
-\par
-        button:hover \{\par
-            background-color: #005A9E;\par
-        \}\par
-\par
-        /* Pati\f1\'e8ka */\par
-        footer \{\par
-            text-align: center;\par
-            padding: 20px;\par
-            color: #777;\par
-            font-size: 13px;\par
-            margin-top: 20px;\par
-        \}\par
-\par
-        /* RESPONSIVITA - P\'f8izp\'f9soben\f0\'ed pro mobily */\par
-        @media (max-width: 768px) \{\par
-            .main-container \{\par
-                flex-direction: column; /* Menu a obsah p\f1\'f9jdou pod sebe */\par
-                margin: 10px;\par
-            \}\par
-\par
-            nav \{\par
-                width: 100%;\par
-                padding: 10px 0;\par
-            \}\par
-\par
-            nav ul \{\par
-                display: flex;\par
-                flex-wrap: wrap;\par
-                justify-content: center;\par
-            \}\par
-\par
-            nav ul li a \{\par
-                padding: 8px 15px;\par
-                border-left: none;\par
-                border-bottom: 2px solid transparent;\par
-            \}\par
-\par
-            nav ul li a:hover, nav ul li a.active \{\par
-                border-left: none;\par
-                border-bottom: 2px solid var(--light-blue);\par
-            \}\par
-\par
-            main \{\par
-                padding: 20px;\par
-            \}\par
-        \}\par
-    </style>\par
-</head>\par
-<body>\par
-\par
-    <header>\par
-        <h1>iRentier.cz</h1>\par
-        <p>Profesion\f0\'e1ln\'ed spr\'e1va a pron\'e1jem komer\f1\'e8n\f0\'edch i reziden\f1\'e8n\f0\'edch nemovitost\'ed</p>\par
-    </header>\par
-\par
-    <div class="main-container">\par
-        <!-- Lev\'e9 menu -->\par
-        <nav>\par
-            <ul>\par
-                <li><a href="#" class="active" onclick="showSection('uvod', this)">\'davod</a></li>\par
-                <li><a href="#" onclick="showSection('sluzby', this)">Na\f1\'9ae slu\'9eby</a></li>\par
-                <li><a href="#" onclick="showSection('o-nas', this)">O n\f0\'e1s</a></li>\par
-                <li><a href="#" onclick="showSection('kontakt', this)">Kontakt</a></li>\par
-            </ul>\par
-        </nav>\par
-\par
-        <!-- St\f1\'f8edov\f0\'fd obsah -->\par
-        <main>\par
-            <!-- Sekce \'davod -->\par
-            <div id="uvod" class="content-section active">\par
-                <h2>Ozvl\'e1\f1\'9atn\'ecte sv\f0\'e9 investice do realit</h2>\par
-                <p>V\'edtejte na modernizovan\'e9 platform\f1\'ec iRentier.cz. Pom\f0\'e1h\'e1me majitel\f1\'f9m nemovitost\f0\'ed maximalizovat pasivn\'ed p\f1\'f8\f0\'edjem z pron\'e1jmu bez zbyte\f1\'e8n\f0\'fdch starost\'ed s administrativou a hled\'e1n\'edm n\'e1jemn\'edk\f1\'f9.</p>\par
-                <p>Postar\f0\'e1me se o v\f1\'9ae od pr\f0\'e1vn\'edho servisu a\f1\'9e po technickou \f0\'fadr\f1\'9ebu budov.</p>\par
-            </div>\par
-\par
-            <!-- Sekce Slu\'9eby -->\par
-            <div id="sluzby" class="content-section">\par
-                <h2>Na\'9ae slu\'9eby</h2>\par
-                <p><strong>\f2\u10003?\f0  Spr\'e1va n\'e1jemn\'edch smluv:</strong> Kompletn\'ed pr\'e1vn\'ed kryt\'ed a komunikace s n\'e1jemn\'edky.</p>\par
-                <p><strong>\f2\u10003?\f0  Optimalizace v\'fdnos\f1\'f9:</strong> Anal\f0\'fdza trhu pro nastaven\'ed ide\'e1ln\'ed v\'fd\f1\'9ae n\f0\'e1jemn\'e9ho.</p>\par
-                <p><strong>\f2\u10003?\f0  Technick\'e1 \'fadr\f1\'9eba:</strong> Pravideln\f0\'e9 kontroly stavu nemovitosti a \f1\'f8e\'9aen\f0\'ed hav\'e1ri\'ed.</p>\par
-            </div>\par
-\par
-            <!-- Sekce O n\'e1s -->\par
-            <div id="o-nas" class="content-section">\par
-                <h2>O n\'e1s</h2>\par
-                <p>Jsme stabiln\'ed partner na trhu s komer\f1\'e8n\f0\'edmi i reziden\f1\'e8n\f0\'edmi realitami. Na\f1\'9a\f0\'edm c\'edlem je p\f1\'f8etv\f0\'e1\f1\'f8et starosti s nemovitostmi v \'e8ist\f0\'fd pasivn\'ed p\f1\'f8\f0\'edjem pro na\f1\'9ae klienty.</p>\par
-            </div>\par
-\par
-            <!-- Sekce Kontakt -->\par
-            <div id="kontakt" class="content-section">\par
-                <h2>Napi\'9ate n\f0\'e1m</h2>\par
-                <p>M\'e1te z\'e1jem o spr\'e1vu nemovitosti nebo nez\'e1vaznou konzultaci? Vypl\f1\'f2te formul\f0\'e1\f1\'f8 n\f0\'ed\f1\'9ee.</p>\par
-                \par
-                <!-- Zde pak sta\'e8\f0\'ed do action hodit Formspree link -->\par
-                <form action="#" method="POST">\par
-                    <div class="form-group">\par
-                        <label>Jm\'e9no a p\f1\'f8\f0\'edjmen\'ed</label>\par
-                        <input type="text" name="name" required placeholder="Jan Nov\'e1k">\par
-                    </div>\par
-                    <div class="form-group">\par
-                        <label>E-mail</label>\par
-                        <input type="email" name="email" required placeholder="jan.novak@email.cz">\par
-                    </div>\par
-                    <div class="form-group">\par
-                        <label>Va\f1\'9ae zpr\f0\'e1va</label>\par
-                        <textarea name="message" rows="5" required placeholder="Dobr\'fd den, m\f1\'ecl bych z\f0\'e1jem o..."></textarea>\par
-                    </div>\par
-                    <button type="submit">Odeslat popt\'e1vku</button>\par
-                </form>\par
-            </div>\par
-        </main>\par
-    </div>\par
-\par
-    <footer>\par
-        <p>&copy; 2026 iRentier.cz. V\f1\'9aechna pr\f0\'e1va vyhrazena. | Modernizace webu s podporou AI</p>\par
-    </footer>\par
-\par
-    <!-- Jednoduch\'fd skript pro p\f1\'f8ep\f0\'edn\'e1n\'ed menu bez na\f1\'e8\f0\'edt\'e1n\'ed str\'e1nky -->\par
-    <script>\par
-        function showSection(sectionId, element) \{\par
-            // Skr\'fdt v\f1\'9aechny sekce\par
-            const sections = document.querySelectorAll('.content-section');\par
-            sections.forEach(sec => sec.classList.remove('active'));\par
-\par
-            // Odzna\'e8it aktivn\f0\'ed menu\par
-            const menuItems = document.querySelectorAll('nav ul li a');\par
-            menuItems.forEach(item => item.classList.remove('active'));\par
-\par
-            // Zobrazit vybranou sekci a aktivovat menu\par
-            document.getElementById(sectionId).classList.add('active');\par
-            element.classList.add('active');\par
-        \}\par
-    </script>\par
-</body>\par
-</html>\lang5\par
-}
- 
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iRentier.cz - Moderní správa nemovitostí</title>
+    <style>
+        /* Definice barev podle původního webu */
+        :root {
+            --primary-blue: #0A2540;
+            --light-blue: #0078D4;
+            --bg-gray: #F4F6F9;
+            --text-dark: #333333;
+            --white: #ffffff;
+            --border-color: #E1E4E8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Hlavička webu */
+        header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--light-blue);
+        }
+
+        header h1 {
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        /* Hlavní kontejner - rozvržení na menu a obsah */
+        .main-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        /* Levé menu */
+        nav {
+            width: 250px;
+            background-color: var(--primary-blue);
+            padding: 20px 0;
+            flex-shrink: 0;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li a {
+            display: block;
+            color: #BAC7D5;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--white);
+            background-color: rgba(255,255,255,0.05);
+            border-left: 4px solid var(--light-blue);
+        }
+
+        /* Středový obsahový panel */
+        main {
+            flex-grow: 1;
+            padding: 40px;
+            background-color: var(--white);
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        /* Aktivní sekce, která se zobrazí */
+        .content-section.active {
+            display: block;
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-bottom: 2px solid var(--bg-gray);
+            padding-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* Kontaktní formulář (Moderní náhrada za Formspree) */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--light-blue);
+        }
+
+        button {
+            background-color: var(--light-blue);
+            color: var(--white);
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #005A9E;
+        }
+
+        /* Patička */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+        /* RESPONSIVITA - Přizpůsobení pro mobily */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column; /* Menu a obsah půjdou pod sebe */
+                margin: 10px;
+            }
+
+            nav {
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li a {
+                padding: 8px 15px;
+                border-left: none;
+                border-bottom: 2px solid transparent;
+            }
+
+            nav ul li a:hover, nav ul li a.active {
+                border-left: none;
+                border-bottom: 2px solid var(--light-blue);
+            }
+
+            main {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>iRentier.cz</h1>
+        <p>Profesionální správa a pronájem komerčních i rezidenčních nemovitostí</p>
+    </header>
+
+    <div class="main-container">
+        <!-- Levé menu -->
+        <nav>
+            <ul>
+                <li><a href="#" class="active" onclick="showSection('uvod', this)">Úvod</a></li>
+                <li><a href="#" onclick="showSection('sluzby', this)">Naše služby</a></li>
+                <li><a href="#" onclick="showSection('o-nas', this)">O nás</a></li>
+                <li><a href="#" onclick="showSection('kontakt', this)">Kontakt</a></li>
+            </ul>
+        </nav>
+
+        <!-- Středový obsah -->
+        <main>
+            <!-- Sekce Úvod -->
+            <div id="uvod" class="content-section active">
+                <h2>Ozvláštněte své investice do realit</h2>
+                <p>Vítejte na modernizované platformě iRentier.cz. Pomáháme majitelům nemovitostí maximalizovat pasivní příjem z pronájmu bez zbytečných starostí s administrativou a hledáním nájemníků.</p>
+                <p>Postaráme se o vše od právního servisu až po technickou údržbu budov.</p>
+            </div>
+
+            <!-- Sekce Služby -->
+            <div id="sluzby" class="content-section">
+                <h2>Naše služby</h2>
+                <p><strong>✓ Správa nájemních smluv:</strong> Kompletní právní krytí a komunikace s nájemníky.</p>
+                <p><strong>✓ Optimalizace výnosů:</strong> Analýza trhu pro nastavení ideální výše nájemného.</p>
+                <p><strong>✓ Technická údržba:</strong> Pravidelné kontroly stavu nemovitosti a řešení havárií.</p>
+            </div>
+
+            <!-- Sekce O nás -->
+            <div id="o-nas" class="content-section">
+                <h2>O nás</h2>
+                <p>Jsme stabilní partner na trhu s komerčními i rezidenčními realitami. Naším cílem je přetvářet starosti s nemovitostmi v čistý pasivní příjem pro naše klienty.</p>
+            </div>
+
+            <!-- Sekce Kontakt -->
+            <div id="kontakt" class="content-section">
+                <h2>Napište nám</h2>
+                <p>Máte zájem o správu nemovitosti nebo nezávaznou konzultaci? Vyplňte formulář níže.</p>
+                
+                <!-- Zde pak stačí do action hodit Formspree link -->
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label>Jméno a příjmení</label>
+                        <input type="text" name="name" required placeholder="Jan Novák">
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" name="email" required placeholder="jan.novak@email.cz">
+                    </div>
+                    <div class="form-group">
+                        <label>Vaše zpráva</label>
+                        <textarea name="message" rows="5" required placeholder="Dobrý den, měl bych zájem o..."></textarea>
+                    </div>
+                    <button type="submit">Odeslat poptávku</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 iRentier.cz. Všechna práva vyhrazena. | Modernizace webu s podporou AI</p>
+    </footer>
+
+    <!-- Jednoduchý skript pro přepínání menu bez načítání stránky -->
+    <script>
+        function showSection(sectionId, element) {
+            // Skrýt všechny sekce
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // Odznačit aktivní menu
+            const menuItems = document.querySelectorAll('nav ul li a');
+            menuItems.forEach(item => item.classList.remove('active'));
+
+            // Zobrazit vybranou sekci a aktivovat menu
+            document.getElementById(sectionId).classList.add('active');
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
